@@ -1,0 +1,25 @@
+Searching 91 files for "item"
+
+/Users/lindnerben/code/BenLindner/rails-task-manager/app/controllers/tasks_controller.rb:
+   40    def task_params
+   41      # this permits name, address, and rating to be passed on when creating a form and nothing else so that hackers can't just come in and add info to give themselves more permissions within your application.
+   42:     params.require(:task).permit(:title, :details, :completed)
+   43    end
+   44  end
+
+/Users/lindnerben/code/BenLindner/rails-task-manager/app/views/tasks/add.html.erb:
+    3  <%= form_for(@task) do |f| %>
+    4    <div class="form-group">
+    5:     <%= f.label :title, 'enter a task' %>
+    6:     <%= f.text_field :title, class: 'form-control' %>
+    7    </div>
+    8
+
+/Users/lindnerben/code/BenLindner/rails-task-manager/app/views/tasks/tasks.html.erb:
+    5      <li>
+    6        <h2><%= link_to task.name, task_path(task) %></h2>
+    7:       <p>title: <%= task.title %></p>
+    8        <p>completed: <%= task.completed %></p>
+    9        <p><%= link_to "Delete", task_path(task), method: :destroy %></p>
+
+5 matches across 3 files
